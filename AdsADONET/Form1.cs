@@ -8,15 +8,48 @@ namespace AdsADONET
         public Form1()
         {
             InitializeComponent();
+            LoadCategories();
+            comboBoxFilter.Text = "";
         }
+        private void LoadCategories()
+        {
+            CategoryRepo categoryRepo = new CategoryRepo();
 
+            comboBoxFilter.DisplayMember = "CategoryName";
+            comboBoxFilter.ValueMember = "CategoryID";
+            comboBoxFilter.DataSource = categoryRepo.GetCategories();
+        }
         private void buttonSearch_Click(object sender, EventArgs e)
         {
-            ListingRepo repo = new ListingRepo();
+            ListingRepo listingRepo = new ListingRepo();
+
 
             listBoxResult.DisplayMember = "Title";
             listBoxResult.ValueMember = "ListingID";
-            listBoxResult.DataSource= repo.GetListings(textBoxSearch.Text, comboBoxFilter.Text);
+            listBoxResult.DataSource = listingRepo.GetListings(textBoxSearch.Text, comboBoxFilter.Text);
+
+            listBoxResult.SelectedIndex = -1;
+        }
+
+        private void listBoxResult_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (listBoxResult.SelectedItem is Listing selectedListing)
+            {
+                textBoxTitle.Text = selectedListing.Title;
+                textBoxDescription.Text = selectedListing.ItemDescription;
+                textBoxPrice.Text = "$" + selectedListing.Price.ToString();
+            }
+            else
+            {
+                textBoxTitle.Clear();
+                textBoxDescription.Clear();
+                textBoxPrice.Clear();
+            }
+        }
+
+        private void buttonCreate_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

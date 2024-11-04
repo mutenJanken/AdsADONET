@@ -1,4 +1,5 @@
-﻿using System.Configuration;
+﻿using AdsADONET.Entities;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 namespace AdsADONET.Repository
@@ -41,6 +42,20 @@ namespace AdsADONET.Repository
                     cmd.Parameters.Add(parameter);
                 }
                 cmd.ExecuteNonQuery();
+            }
+        }
+        public static object ExecuteScalar(string query, List<SqlParameter> parameters)
+        {
+            using (SqlConnection conn = GetDbConnection())
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand(query, conn);
+
+                foreach (SqlParameter parameter in parameters)
+                {
+                    cmd.Parameters.Add(parameter);
+                }
+                return cmd.ExecuteScalar();
             }
         }
     }

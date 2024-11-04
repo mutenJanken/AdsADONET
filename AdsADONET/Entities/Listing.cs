@@ -4,25 +4,19 @@
     {
         public int ListingID { get; set; }
         public string Title { get; set; }
+        public string ItemDescription { get; set; }
         public decimal Price { get; set; }
-        public int ItemID { get; set; }
-        public Item Item { get; set; }
-        public int AccountID { get; set; }
-        public Account Account { get; set; }
+        public Category Category { get; set; }
+        public User User {  get; set; }
 
-        public Listing()
-        {
-            
-        }
-        public Listing(int listingID, string title, decimal price, int itemID, Item item, int accountID, Account account)
+        public Listing(int listingID, string title, string itemDescription, decimal price, Category category, User user)
         {
             ListingID = listingID;
             Title = title;
+            ItemDescription = itemDescription;
             Price = price;
-            ItemID = itemID;
-            Item = item;
-            AccountID = accountID;
-            Account = account;
+            Category = category;
+            User = user;
         }
     }
 }

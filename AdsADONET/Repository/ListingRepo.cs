@@ -8,9 +8,12 @@ namespace AdsADONET.Repository
     {
         public List<Listing> GetListings(string searchCondition, string filterCondition)
         {
-            string query = "SELECT ListingID, Title, Price, ItemID, AccountID " +
-                           "FROM Listings " +
-                           "WHERE 1=1 ";
+            string query = "SELECT ListingID, Title, ItemDescription, Price, Categories.CategoryID, CategoryName, Users.UserID, Username, UserPassword, FullName, Email " +
+                "FROM Listings " +
+                "INNER JOIN Categories ON Listings.CategoryID = Categories.CategoryID " +
+                "INNER JOIN Users ON Listings.UserID = Users.UserID " +
+                "WHERE 1=1 ";
+
             List<SqlParameter> parameters = new List<SqlParameter>();
 
             if (!string.IsNullOrEmpty(searchCondition))
@@ -18,28 +21,37 @@ namespace AdsADONET.Repository
                 query += "AND Title LIKE @searchCondition ";
                 parameters.Add(new SqlParameter("@searchCondition", "%" + searchCondition + "%"));
             }
-
             if (!string.IsNullOrEmpty(filterCondition))
             {
-                query += "AND CategoryID = @filterCondition ";
+                query += "AND Categories.CategoryName = @filterCondition ";
                 parameters.Add(new SqlParameter("@filterCondition", filterCondition));
             }
 
-            DataTable result = DataContext.ExecuteQuery(query, parameters);
+            DataTable data = DataContext.ExecuteQuery(query, parameters);
 
             List<Listing> listings = new List<Listing>();
-            foreach (DataRow row in result.Rows)
+            foreach (DataRow row in data.Rows)
             {
-                listings.Add(new Listing
-                {
-                    ListingID = (int)row["ListingID"],
-                    Title = (string)row["Title"],
-                    Price = (decimal)row["Price"],
-                    ItemID = (int)row["ItemID"],
-                    AccountID = (int)row["AccountID"]
-                });
+                Category category = new Category((int)row["CategoryID"], row["CategoryName"].ToString());
+                User user = new User((int)row["UserID"], row["Username"].ToString(), row["UserPassword"].ToString(), row["FullName"].ToString(), row["Email"].ToString());
+                Listing listing = new Listing((int)row["ListingID"], row["Title"].ToString(), row["ItemDescription"].ToString(),
+                                                (decimal)row["Price"], category, user);
+                listings.Add(listing);
             }
             return listings;
         }
+
+        public void CreateListing(string title, string itemDescription, decimal price)
+        {
+            string query = "INSERT INTO Listings(Title, ItemDescription, Price) VALUES (@Title, @ItemDescription, @Price) " +
+                "SELECT CAST(@@identity as int) ";
+
+            SqlCommand cmd = new SqlCommand(query, DataContext.GetDbConnection());
+            cmd.Parameters.AddWithValue("@title", title);
+            cmd.Parameters.AddWithValue("@ItemDescription", itemDescription);
+            cmd.Parameters.AddWithValue("@Price", price);
+
+            int id = (int) cmd.ExecuteScalar();
+        }        
     }
 }
