@@ -34,24 +34,25 @@
             comboBoxFilter = new ComboBox();
             listBoxResult = new ListBox();
             groupBox1 = new GroupBox();
-            labelFilter = new Label();
-            buttonDelete = new Button();
+            labelPrice = new Label();
+            textBoxPrice = new TextBox();
+            textBoxDescription = new TextBox();
+            textBoxTitle = new TextBox();
             buttonCreate = new Button();
+            buttonDelete = new Button();
+            labelFilter = new Label();
             buttonLogin = new Button();
             buttonRegister = new Button();
-            textBoxTitle = new TextBox();
-            textBoxDescription = new TextBox();
-            textBoxPrice = new TextBox();
-            labelPrice = new Label();
             label1 = new Label();
             groupBox1.SuspendLayout();
             SuspendLayout();
             // 
             // buttonSearch
             // 
-            buttonSearch.Location = new Point(267, 147);
+            buttonSearch.Location = new Point(496, 314);
+            buttonSearch.Margin = new Padding(6, 6, 6, 6);
             buttonSearch.Name = "buttonSearch";
-            buttonSearch.Size = new Size(75, 24);
+            buttonSearch.Size = new Size(139, 51);
             buttonSearch.TabIndex = 0;
             buttonSearch.Text = "Search";
             buttonSearch.UseVisualStyleBackColor = true;
@@ -59,36 +60,40 @@
             // 
             // buttonUpdate
             // 
-            buttonUpdate.Location = new Point(6, 243);
+            buttonUpdate.Location = new Point(11, 518);
+            buttonUpdate.Margin = new Padding(6, 6, 6, 6);
             buttonUpdate.Name = "buttonUpdate";
-            buttonUpdate.Size = new Size(75, 23);
+            buttonUpdate.Size = new Size(139, 49);
             buttonUpdate.TabIndex = 1;
             buttonUpdate.Text = "Update";
             buttonUpdate.UseVisualStyleBackColor = true;
             // 
             // textBoxSearch
             // 
-            textBoxSearch.Location = new Point(46, 147);
+            textBoxSearch.Location = new Point(85, 314);
+            textBoxSearch.Margin = new Padding(6, 6, 6, 6);
             textBoxSearch.Name = "textBoxSearch";
             textBoxSearch.PlaceholderText = "Search ads";
-            textBoxSearch.Size = new Size(215, 23);
+            textBoxSearch.Size = new Size(396, 39);
             textBoxSearch.TabIndex = 2;
             // 
             // comboBoxFilter
             // 
             comboBoxFilter.FormattingEnabled = true;
-            comboBoxFilter.Location = new Point(46, 191);
+            comboBoxFilter.Items.AddRange(new object[] { "Furniture", "Electronics", "Apparel", "Art" });
+            comboBoxFilter.Location = new Point(85, 407);
+            comboBoxFilter.Margin = new Padding(6, 6, 6, 6);
             comboBoxFilter.Name = "comboBoxFilter";
-            comboBoxFilter.Size = new Size(296, 23);
+            comboBoxFilter.Size = new Size(546, 40);
             comboBoxFilter.TabIndex = 3;
             // 
             // listBoxResult
             // 
             listBoxResult.FormattingEnabled = true;
-            listBoxResult.ItemHeight = 15;
-            listBoxResult.Location = new Point(46, 220);
+            listBoxResult.Location = new Point(85, 469);
+            listBoxResult.Margin = new Padding(6, 6, 6, 6);
             listBoxResult.Name = "listBoxResult";
-            listBoxResult.Size = new Size(296, 199);
+            listBoxResult.Size = new Size(546, 420);
             listBoxResult.TabIndex = 4;
             // 
             // groupBox1
@@ -100,104 +105,116 @@
             groupBox1.Controls.Add(buttonCreate);
             groupBox1.Controls.Add(buttonDelete);
             groupBox1.Controls.Add(buttonUpdate);
-            groupBox1.Location = new Point(383, 147);
+            groupBox1.Location = new Point(711, 314);
+            groupBox1.Margin = new Padding(6, 6, 6, 6);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(285, 272);
+            groupBox1.Padding = new Padding(6, 6, 6, 6);
+            groupBox1.Size = new Size(529, 580);
             groupBox1.TabIndex = 5;
             groupBox1.TabStop = false;
             groupBox1.Text = "Listing";
             // 
-            // labelFilter
+            // labelPrice
             // 
-            labelFilter.AutoSize = true;
-            labelFilter.Location = new Point(46, 173);
-            labelFilter.Name = "labelFilter";
-            labelFilter.Size = new Size(33, 15);
-            labelFilter.TabIndex = 6;
-            labelFilter.Text = "Filter";
+            labelPrice.AutoSize = true;
+            labelPrice.Location = new Point(217, 444);
+            labelPrice.Margin = new Padding(6, 0, 6, 0);
+            labelPrice.Name = "labelPrice";
+            labelPrice.Size = new Size(70, 32);
+            labelPrice.TabIndex = 7;
+            labelPrice.Text = "Price:";
             // 
-            // buttonDelete
+            // textBoxPrice
             // 
-            buttonDelete.Location = new Point(105, 243);
-            buttonDelete.Name = "buttonDelete";
-            buttonDelete.Size = new Size(75, 23);
-            buttonDelete.TabIndex = 2;
-            buttonDelete.Text = "Delete";
-            buttonDelete.UseVisualStyleBackColor = true;
+            textBoxPrice.Location = new Point(295, 437);
+            textBoxPrice.Margin = new Padding(6, 6, 6, 6);
+            textBoxPrice.Name = "textBoxPrice";
+            textBoxPrice.Size = new Size(182, 39);
+            textBoxPrice.TabIndex = 6;
+            // 
+            // textBoxDescription
+            // 
+            textBoxDescription.Location = new Point(46, 117);
+            textBoxDescription.Margin = new Padding(6, 6, 6, 6);
+            textBoxDescription.Multiline = true;
+            textBoxDescription.Name = "textBoxDescription";
+            textBoxDescription.Size = new Size(431, 303);
+            textBoxDescription.TabIndex = 5;
+            // 
+            // textBoxTitle
+            // 
+            textBoxTitle.Location = new Point(46, 55);
+            textBoxTitle.Margin = new Padding(6, 6, 6, 6);
+            textBoxTitle.Name = "textBoxTitle";
+            textBoxTitle.Size = new Size(431, 39);
+            textBoxTitle.TabIndex = 4;
             // 
             // buttonCreate
             // 
-            buttonCreate.Location = new Point(204, 243);
+            buttonCreate.Location = new Point(379, 518);
+            buttonCreate.Margin = new Padding(6, 6, 6, 6);
             buttonCreate.Name = "buttonCreate";
-            buttonCreate.Size = new Size(75, 23);
+            buttonCreate.Size = new Size(139, 49);
             buttonCreate.TabIndex = 3;
             buttonCreate.Text = "Create ad";
             buttonCreate.UseVisualStyleBackColor = true;
             // 
+            // buttonDelete
+            // 
+            buttonDelete.Location = new Point(195, 518);
+            buttonDelete.Margin = new Padding(6, 6, 6, 6);
+            buttonDelete.Name = "buttonDelete";
+            buttonDelete.Size = new Size(139, 49);
+            buttonDelete.TabIndex = 2;
+            buttonDelete.Text = "Delete";
+            buttonDelete.UseVisualStyleBackColor = true;
+            // 
+            // labelFilter
+            // 
+            labelFilter.AutoSize = true;
+            labelFilter.Location = new Point(85, 369);
+            labelFilter.Margin = new Padding(6, 0, 6, 0);
+            labelFilter.Name = "labelFilter";
+            labelFilter.Size = new Size(67, 32);
+            labelFilter.TabIndex = 6;
+            labelFilter.Text = "Filter";
+            // 
             // buttonLogin
             // 
-            buttonLogin.Location = new Point(593, 118);
+            buttonLogin.Location = new Point(1101, 252);
+            buttonLogin.Margin = new Padding(6, 6, 6, 6);
             buttonLogin.Name = "buttonLogin";
-            buttonLogin.Size = new Size(75, 23);
+            buttonLogin.Size = new Size(139, 49);
             buttonLogin.TabIndex = 7;
             buttonLogin.Text = "Login";
             buttonLogin.UseVisualStyleBackColor = true;
             // 
             // buttonRegister
             // 
-            buttonRegister.Location = new Point(512, 118);
+            buttonRegister.Location = new Point(951, 252);
+            buttonRegister.Margin = new Padding(6, 6, 6, 6);
             buttonRegister.Name = "buttonRegister";
-            buttonRegister.Size = new Size(75, 23);
+            buttonRegister.Size = new Size(139, 49);
             buttonRegister.TabIndex = 8;
             buttonRegister.Text = "Register";
             buttonRegister.UseVisualStyleBackColor = true;
-            // 
-            // textBoxTitle
-            // 
-            textBoxTitle.Location = new Point(25, 26);
-            textBoxTitle.Name = "textBoxTitle";
-            textBoxTitle.Size = new Size(234, 23);
-            textBoxTitle.TabIndex = 4;
-            // 
-            // textBoxDescription
-            // 
-            textBoxDescription.Location = new Point(25, 55);
-            textBoxDescription.Multiline = true;
-            textBoxDescription.Name = "textBoxDescription";
-            textBoxDescription.Size = new Size(234, 144);
-            textBoxDescription.TabIndex = 5;
-            // 
-            // textBoxPrice
-            // 
-            textBoxPrice.Location = new Point(159, 205);
-            textBoxPrice.Name = "textBoxPrice";
-            textBoxPrice.Size = new Size(100, 23);
-            textBoxPrice.TabIndex = 6;
-            // 
-            // labelPrice
-            // 
-            labelPrice.AutoSize = true;
-            labelPrice.Location = new Point(117, 208);
-            labelPrice.Name = "labelPrice";
-            labelPrice.Size = new Size(36, 15);
-            labelPrice.TabIndex = 7;
-            labelPrice.Text = "Price:";
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 18F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
-            label1.Location = new Point(59, 42);
+            label1.Location = new Point(110, 90);
+            label1.Margin = new Padding(6, 0, 6, 0);
             label1.Name = "label1";
-            label1.Size = new Size(71, 32);
+            label1.Size = new Size(141, 65);
             label1.TabIndex = 9;
             label1.Text = "bBay";
             // 
             // Form1
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(708, 466);
+            ClientSize = new Size(1315, 994);
             Controls.Add(label1);
             Controls.Add(buttonRegister);
             Controls.Add(buttonLogin);
@@ -207,6 +224,7 @@
             Controls.Add(comboBoxFilter);
             Controls.Add(textBoxSearch);
             Controls.Add(buttonSearch);
+            Margin = new Padding(6, 6, 6, 6);
             Name = "Form1";
             Text = "Form1";
             groupBox1.ResumeLayout(false);

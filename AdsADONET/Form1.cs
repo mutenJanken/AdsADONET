@@ -1,3 +1,6 @@
+using AdsADONET.Entities;
+using AdsADONET.Repository;
+
 namespace AdsADONET
 {
     public partial class Form1 : Form
@@ -9,7 +12,11 @@ namespace AdsADONET
 
         private void buttonSearch_Click(object sender, EventArgs e)
         {
+            ListingRepo repo = new ListingRepo();
 
+            listBoxResult.DisplayMember = "Title";
+            listBoxResult.ValueMember = "ListingID";
+            listBoxResult.DataSource= repo.GetListings(textBoxSearch.Text, comboBoxFilter.Text);
         }
     }
 }

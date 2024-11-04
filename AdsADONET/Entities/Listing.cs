@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace AdsADONET.Entities
+﻿namespace AdsADONET.Entities
 {
     public class Listing
     {
@@ -16,6 +10,10 @@ namespace AdsADONET.Entities
         public int AccountID { get; set; }
         public Account Account { get; set; }
 
+        public Listing()
+        {
+            
+        }
         public Listing(int listingID, string title, decimal price, int itemID, Item item, int accountID, Account account)
         {
             ListingID = listingID;
