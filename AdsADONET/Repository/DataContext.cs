@@ -6,6 +6,7 @@ namespace AdsADONET.Repository
 {
     public static class DataContext
     {
+
         public static SqlConnection GetDbConnection()
         {
             return new SqlConnection(ConfigurationManager.ConnectionStrings["DBConnString"].ConnectionString);

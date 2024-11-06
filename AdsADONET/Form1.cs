@@ -49,7 +49,14 @@ namespace AdsADONET
 
         private void buttonCreate_Click(object sender, EventArgs e)
         {
+            FormCreateListing createListing = new FormCreateListing();
+            createListing.ShowDialog();
+        }
 
+        private void buttonRegister_Click(object sender, EventArgs e)
+        {
+            FormRegisterAccount registerAccount = new FormRegisterAccount();
+            registerAccount.ShowDialog();
         }
     }
 }

@@ -41,8 +41,9 @@ namespace AdsADONET.Repository
             return listings;
         }
 
-        public void CreateListing(string title, string itemDescription, decimal price)
+        public void CreateListing(string title, string itemDescription, string price)
         {
+            Convert.ToDecimal(price);
             string query = "INSERT INTO Listings(Title, ItemDescription, Price) VALUES (@Title, @ItemDescription, @Price) " +
                 "SELECT CAST(@@identity as int) ";
 
