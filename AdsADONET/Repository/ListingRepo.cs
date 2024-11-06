@@ -46,13 +46,15 @@ namespace AdsADONET.Repository
             Convert.ToDecimal(price);
             string query = "INSERT INTO Listings(Title, ItemDescription, Price) VALUES (@Title, @ItemDescription, @Price) " +
                 "SELECT CAST(@@identity as int) ";
+            using (SqlConnection conn = DataContext.GetDbConnection())
+            {
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@title", title);
+                cmd.Parameters.AddWithValue("@ItemDescription", itemDescription);
+                cmd.Parameters.AddWithValue("@Price", price);
 
-            SqlCommand cmd = new SqlCommand(query, DataContext.GetDbConnection());
-            cmd.Parameters.AddWithValue("@title", title);
-            cmd.Parameters.AddWithValue("@ItemDescription", itemDescription);
-            cmd.Parameters.AddWithValue("@Price", price);
-
-            int id = (int) cmd.ExecuteScalar();
-        }        
+                int id = (int)cmd.ExecuteScalar();
+            }
+        }
     }
 }

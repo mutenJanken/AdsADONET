@@ -11,19 +11,17 @@ using System.Windows.Forms;
 
 namespace AdsADONET
 {
-    public partial class FormRegisterAccount : Form
+    public partial class FormLogin : Form
     {
-        public FormRegisterAccount()
+        public FormLogin()
         {
             InitializeComponent();
         }
 
-        private void buttonRegister_Click(object sender, EventArgs e)
+        private void buttonLogin_Click(object sender, EventArgs e)
         {
             UserRepo repo = new UserRepo();
-            string regMessage = repo.CreateAccount(textBoxRegUsername.Text, textBoxRegPassword.Text, textBoxRegFullname.Text, textBoxRegEmail.Text);
-   
-            MessageBox.Show(regMessage);        
+            repo.ValidateUser(textBoxUsername.Text, textBoxPassword.Text);
         }
     }
 }
