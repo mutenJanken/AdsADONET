@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             groupBox1 = new GroupBox();
+            label1 = new Label();
+            comboBoxFilter = new ComboBox();
             labelPrice = new Label();
             textBoxAddPrice = new TextBox();
             textBoxAddDescription = new TextBox();
@@ -39,6 +41,8 @@
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(label1);
+            groupBox1.Controls.Add(comboBoxFilter);
             groupBox1.Controls.Add(labelPrice);
             groupBox1.Controls.Add(textBoxAddPrice);
             groupBox1.Controls.Add(textBoxAddDescription);
@@ -48,15 +52,32 @@
             groupBox1.Margin = new Padding(6);
             groupBox1.Name = "groupBox1";
             groupBox1.Padding = new Padding(6);
-            groupBox1.Size = new Size(529, 590);
+            groupBox1.Size = new Size(529, 664);
             groupBox1.TabIndex = 6;
             groupBox1.TabStop = false;
             groupBox1.Text = "Create listing";
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(46, 103);
+            label1.Name = "label1";
+            label1.Size = new Size(110, 32);
+            label1.TabIndex = 9;
+            label1.Text = "Category";
+            // 
+            // comboBoxFilter
+            // 
+            comboBoxFilter.FormattingEnabled = true;
+            comboBoxFilter.Location = new Point(46, 138);
+            comboBoxFilter.Name = "comboBoxFilter";
+            comboBoxFilter.Size = new Size(431, 40);
+            comboBoxFilter.TabIndex = 8;
+            // 
             // labelPrice
             // 
             labelPrice.AutoSize = true;
-            labelPrice.Location = new Point(213, 440);
+            labelPrice.Location = new Point(213, 521);
             labelPrice.Margin = new Padding(6, 0, 6, 0);
             labelPrice.Name = "labelPrice";
             labelPrice.Size = new Size(70, 32);
@@ -65,7 +86,7 @@
             // 
             // textBoxAddPrice
             // 
-            textBoxAddPrice.Location = new Point(295, 437);
+            textBoxAddPrice.Location = new Point(295, 518);
             textBoxAddPrice.Margin = new Padding(6);
             textBoxAddPrice.Name = "textBoxAddPrice";
             textBoxAddPrice.PlaceholderText = "Add price...";
@@ -74,7 +95,7 @@
             // 
             // textBoxAddDescription
             // 
-            textBoxAddDescription.Location = new Point(46, 117);
+            textBoxAddDescription.Location = new Point(46, 198);
             textBoxAddDescription.Margin = new Padding(6);
             textBoxAddDescription.Multiline = true;
             textBoxAddDescription.Name = "textBoxAddDescription";
@@ -93,7 +114,7 @@
             // 
             // buttonCreate
             // 
-            buttonCreate.Location = new Point(338, 488);
+            buttonCreate.Location = new Point(338, 569);
             buttonCreate.Margin = new Padding(6);
             buttonCreate.Name = "buttonCreate";
             buttonCreate.Size = new Size(139, 49);
@@ -106,7 +127,7 @@
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(663, 664);
+            ClientSize = new Size(663, 759);
             Controls.Add(groupBox1);
             Name = "FormCreateListing";
             Text = "FormCreateListing";
@@ -123,5 +144,7 @@
         private TextBox textBoxAddDescription;
         private TextBox textBoxAddTitle;
         private Button buttonCreate;
+        private ComboBox comboBoxFilter;
+        private Label label1;
     }
 }

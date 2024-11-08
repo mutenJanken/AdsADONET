@@ -13,6 +13,7 @@ namespace AdsADONET.Repository
 {
     public class UserRepo
     {
+        private static int accountID;
         public string CreateAccount(string username, string userPassword, string fullName, string email)
         {
             if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(userPassword) || string.IsNullOrEmpty(fullName) || string.IsNullOrEmpty(email))
@@ -47,9 +48,13 @@ namespace AdsADONET.Repository
                 cmd.Parameters.AddWithValue("@UserPassword", userPassword);
 
                 conn.Open();
-                int id = (int)cmd.ExecuteScalar();
-            }             
+                accountID = (int)cmd.ExecuteScalar();
+            }           
 
+        }
+        public static int GetAccountID()
+        {
+            return accountID;
         }
     }
 }

@@ -41,10 +41,10 @@ namespace AdsADONET.Repository
             return listings;
         }
 
-        public void CreateListing(string title, string itemDescription, string price)
+        public void CreateListing(string title, string itemDescription, string price, string categoryID)
         {
             Convert.ToDecimal(price);
-            string query = "INSERT INTO Listings(Title, ItemDescription, Price) VALUES (@Title, @ItemDescription, @Price) " +
+            string query = "INSERT INTO Listings(Title, ItemDescription, Price, UserID, CategoryID) VALUES (@Title, @ItemDescription, @Price, @UserID, @CategotyID) " +
                 "SELECT CAST(@@identity as int) ";
             using (SqlConnection conn = DataContext.GetDbConnection())
             {
@@ -52,7 +52,9 @@ namespace AdsADONET.Repository
                 cmd.Parameters.AddWithValue("@title", title);
                 cmd.Parameters.AddWithValue("@ItemDescription", itemDescription);
                 cmd.Parameters.AddWithValue("@Price", price);
-
+                cmd.Parameters.AddWithValue("@UserID", UserRepo.GetAccountID());
+                cmd.Parameters.AddWithValue("@CategoryID", categoryID);
+                conn.Open();
                 int id = (int)cmd.ExecuteScalar();
             }
         }

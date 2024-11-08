@@ -22,6 +22,7 @@ namespace AdsADONET
         {
             UserRepo repo = new UserRepo();
             repo.ValidateUser(textBoxUsername.Text, textBoxPassword.Text);
+            MessageBox.Show("Logged in succefully");
         }
     }
 }

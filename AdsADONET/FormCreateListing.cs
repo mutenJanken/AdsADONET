@@ -16,12 +16,21 @@ namespace AdsADONET
         public FormCreateListing()
         {
             InitializeComponent();
+            LoadCategories();
         }
+        private void LoadCategories()
+        {
+            CategoryRepo categoryRepo = new CategoryRepo();
 
+            comboBoxFilter.DisplayMember = "CategoryName";
+            comboBoxFilter.ValueMember = "CategoryID";
+            comboBoxFilter.DataSource = categoryRepo.GetCategories();
+        }
         private void buttonCreate_Click(object sender, EventArgs e)
         {
             ListingRepo repo = new ListingRepo();
-            repo.CreateListing(textBoxAddTitle.Text, textBoxAddDescription.Text, textBoxAddPrice.Text);
+
+            repo.CreateListing(textBoxAddTitle.Text, textBoxAddDescription.Text, textBoxAddPrice.Text, comboBoxFilter.Text);
         }
     }
 }

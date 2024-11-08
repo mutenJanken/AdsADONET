@@ -58,5 +58,11 @@ namespace AdsADONET
             FormRegisterAccount registerAccount = new FormRegisterAccount();
             registerAccount.ShowDialog();
         }
+
+        private void buttonLogin_Click(object sender, EventArgs e)
+        {
+            FormLogin formLogin = new FormLogin();
+            formLogin.ShowDialog();
+        }
     }
 }

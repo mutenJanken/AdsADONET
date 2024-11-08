@@ -46,19 +46,19 @@ namespace AdsADONET.Repository
                 cmd.ExecuteNonQuery();
             }
         }
-        public static object ExecuteScalar(string query, List<SqlParameter> parameters)
-        {
-            using (SqlConnection conn = GetDbConnection())
-            {
-                conn.Open();
-                SqlCommand cmd = new SqlCommand(query, conn);
+        //public static object ExecuteScalar(string query, List<SqlParameter> parameters)
+        //{
+        //    using (SqlConnection conn = GetDbConnection())
+        //    {
+        //        conn.Open();
+        //        SqlCommand cmd = new SqlCommand(query, conn);
 
-                foreach (SqlParameter parameter in parameters)
-                {
-                    cmd.Parameters.Add(parameter);
-                }
-                return cmd.ExecuteScalar();
-            }
-        }
+        //        foreach (SqlParameter parameter in parameters)
+        //        {
+        //            cmd.Parameters.Add(parameter);
+        //        }
+        //        return cmd.ExecuteScalar();
+        //    }
+        //}
     }
 }
