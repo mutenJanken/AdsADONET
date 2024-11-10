@@ -81,7 +81,6 @@ namespace AdsADONET.Repository
                 parameters.Add(new SqlParameter("@ListingID", selecterdListingID));
                 parameters.Add(new SqlParameter("@UserID", accountID));
 
-
                 DataContext.ExecuteDataEditQuery(query, parameters);
                 return true;
             }
@@ -94,7 +93,7 @@ namespace AdsADONET.Repository
             if (selectedListingUserID == accountID)
             {
                 string query = "UPDATE Listings SET Title = @Title, ItemDescription = @ItemDescription, Price = @Price,  CategoryID = @CategoryID,  UserID = @UserID WHERE ListingID = @ListingID";
-                List<SqlParameter> parameters = new List<SqlParameter>();
+                List<SqlParameter> parameters = new List<SqlParameter>();                
 
                 parameters.Add(new SqlParameter("@ListingID", selectedListingID));
                 parameters.Add(new SqlParameter("@Title", title));

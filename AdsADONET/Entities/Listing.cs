@@ -8,8 +8,7 @@
         public decimal Price { get; set; }
         public DateTime ListingDate { get; set; }
         public Category Category { get; set; }
-        public User User {  get; set; }
-        public string TitlePriceDate => $"{Title} , {Price:C} , {ListingDate:d}";
+        public User User {  get; set; }        
 
         public Listing(int listingID, string title, string itemDescription, decimal price, DateTime listingDate, Category category, User user)
         {

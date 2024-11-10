@@ -77,7 +77,7 @@ namespace AdsADONET
         private void buttonSearch_Click(object sender, EventArgs e)
         {
             sortBy = GetSorting();
-            listBoxResult.DisplayMember = "TitlePriceDate";
+            listBoxResult.DisplayMember = "Title";
             listBoxResult.ValueMember = "ListingID";
             listBoxResult.DataSource = listingRepo.GetListings(textBoxSearch.Text, comboBoxSearchFilter.Text, sortBy);
 
@@ -148,6 +148,7 @@ namespace AdsADONET
                         sortBy = GetSorting();
                         listBoxResult.DataSource = listingRepo.GetListings(textBoxSearch.Text, comboBoxSearchFilter.Text, sortBy);
                         MessageBox.Show("Listing has been deleted.");
+                        LockUpdateControls();
                         ClearListBox();
                     }
                     else

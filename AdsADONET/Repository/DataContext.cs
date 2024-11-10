@@ -12,8 +12,7 @@ namespace AdsADONET.Repository
         }
 
         public static DataTable ExecuteQuery(string query, List<SqlParameter> parameters)
-        {
-            
+        {            
             using (SqlConnection conn = GetDbConnection())
             {
                 SqlCommand cmd = new SqlCommand(query, conn);
