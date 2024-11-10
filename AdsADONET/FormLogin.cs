@@ -21,8 +21,16 @@ namespace AdsADONET
         private void buttonLogin_Click(object sender, EventArgs e)
         {
             UserRepo repo = new UserRepo();
-            repo.ValidateUser(textBoxUsername.Text, textBoxPassword.Text);
-            MessageBox.Show("Logged in succefully");
+            bool isUserValid = repo.ValidateUser(textBoxUsername.Text, textBoxPassword.Text);
+            if (isUserValid == true)
+            {
+                MessageBox.Show("Logged in successfully");
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Wrong username or password, try again");
+            }
         }
     }
 }

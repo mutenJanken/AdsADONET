@@ -6,7 +6,6 @@ namespace AdsADONET.Repository
 {
     public static class DataContext
     {
-
         public static SqlConnection GetDbConnection()
         {
             return new SqlConnection(ConfigurationManager.ConnectionStrings["DBConnString"].ConnectionString);
@@ -32,7 +31,7 @@ namespace AdsADONET.Repository
             }
         }
 
-        public static void ExecuteNonQuery(string query, List<SqlParameter> parameters)
+        public static void ExecuteDataEditQuery(string query, List<SqlParameter> parameters)
         {
             using (SqlConnection conn = GetDbConnection())
             {
@@ -46,19 +45,20 @@ namespace AdsADONET.Repository
                 cmd.ExecuteNonQuery();
             }
         }
-        //public static object ExecuteScalar(string query, List<SqlParameter> parameters)
-        //{
-        //    using (SqlConnection conn = GetDbConnection())
-        //    {
-        //        conn.Open();
-        //        SqlCommand cmd = new SqlCommand(query, conn);
+        public static object ExecuteScalar(string query, List<SqlParameter> parameters)
+        {
+            using (SqlConnection conn = GetDbConnection())
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand(query, conn);
 
-        //        foreach (SqlParameter parameter in parameters)
-        //        {
-        //            cmd.Parameters.Add(parameter);
-        //        }
-        //        return cmd.ExecuteScalar();
-        //    }
-        //}
+                foreach (SqlParameter parameter in parameters)
+                {
+                    cmd.Parameters.Add(parameter);
+                }
+                return cmd.ExecuteScalar();
+            }
+        }
     }
 }
+

@@ -23,7 +23,8 @@ namespace AdsADONET
             UserRepo repo = new UserRepo();
             string regMessage = repo.CreateAccount(textBoxRegUsername.Text, textBoxRegPassword.Text, textBoxRegFullname.Text, textBoxRegEmail.Text);
    
-            MessageBox.Show(regMessage);        
+            MessageBox.Show(regMessage);
+            this.Close();
         }
     }
 }

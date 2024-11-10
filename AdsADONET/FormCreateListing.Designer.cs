@@ -36,6 +36,7 @@
             textBoxAddDescription = new TextBox();
             textBoxAddTitle = new TextBox();
             buttonCreate = new Button();
+            label2 = new Label();
             groupBox1.SuspendLayout();
             SuspendLayout();
             // 
@@ -48,11 +49,9 @@
             groupBox1.Controls.Add(textBoxAddDescription);
             groupBox1.Controls.Add(textBoxAddTitle);
             groupBox1.Controls.Add(buttonCreate);
-            groupBox1.Location = new Point(70, 38);
-            groupBox1.Margin = new Padding(6);
+            groupBox1.Location = new Point(35, 75);
             groupBox1.Name = "groupBox1";
-            groupBox1.Padding = new Padding(6);
-            groupBox1.Size = new Size(529, 664);
+            groupBox1.Size = new Size(285, 311);
             groupBox1.TabIndex = 6;
             groupBox1.TabStop = false;
             groupBox1.Text = "Create listing";
@@ -60,80 +59,91 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(46, 103);
+            label1.Location = new Point(25, 48);
+            label1.Margin = new Padding(2, 0, 2, 0);
             label1.Name = "label1";
-            label1.Size = new Size(110, 32);
+            label1.Size = new Size(55, 15);
             label1.TabIndex = 9;
             label1.Text = "Category";
             // 
             // comboBoxFilter
             // 
             comboBoxFilter.FormattingEnabled = true;
-            comboBoxFilter.Location = new Point(46, 138);
+            comboBoxFilter.Location = new Point(25, 65);
+            comboBoxFilter.Margin = new Padding(2, 1, 2, 1);
             comboBoxFilter.Name = "comboBoxFilter";
-            comboBoxFilter.Size = new Size(431, 40);
+            comboBoxFilter.Size = new Size(234, 23);
             comboBoxFilter.TabIndex = 8;
             // 
             // labelPrice
             // 
             labelPrice.AutoSize = true;
-            labelPrice.Location = new Point(213, 521);
-            labelPrice.Margin = new Padding(6, 0, 6, 0);
+            labelPrice.Location = new Point(115, 244);
             labelPrice.Name = "labelPrice";
-            labelPrice.Size = new Size(70, 32);
+            labelPrice.Size = new Size(36, 15);
             labelPrice.TabIndex = 7;
             labelPrice.Text = "Price:";
             // 
             // textBoxAddPrice
             // 
-            textBoxAddPrice.Location = new Point(295, 518);
-            textBoxAddPrice.Margin = new Padding(6);
+            textBoxAddPrice.Location = new Point(159, 243);
             textBoxAddPrice.Name = "textBoxAddPrice";
             textBoxAddPrice.PlaceholderText = "Add price...";
-            textBoxAddPrice.Size = new Size(182, 39);
+            textBoxAddPrice.Size = new Size(100, 23);
             textBoxAddPrice.TabIndex = 6;
             // 
             // textBoxAddDescription
             // 
-            textBoxAddDescription.Location = new Point(46, 198);
-            textBoxAddDescription.Margin = new Padding(6);
+            textBoxAddDescription.Location = new Point(25, 93);
             textBoxAddDescription.Multiline = true;
             textBoxAddDescription.Name = "textBoxAddDescription";
             textBoxAddDescription.PlaceholderText = "Add description...";
-            textBoxAddDescription.Size = new Size(431, 303);
+            textBoxAddDescription.Size = new Size(234, 144);
             textBoxAddDescription.TabIndex = 5;
             // 
             // textBoxAddTitle
             // 
-            textBoxAddTitle.Location = new Point(46, 55);
-            textBoxAddTitle.Margin = new Padding(6);
+            textBoxAddTitle.Location = new Point(25, 26);
             textBoxAddTitle.Name = "textBoxAddTitle";
             textBoxAddTitle.PlaceholderText = "Add title...";
-            textBoxAddTitle.Size = new Size(431, 39);
+            textBoxAddTitle.Size = new Size(234, 23);
             textBoxAddTitle.TabIndex = 4;
             // 
             // buttonCreate
             // 
-            buttonCreate.Location = new Point(338, 569);
-            buttonCreate.Margin = new Padding(6);
+            buttonCreate.Location = new Point(182, 267);
             buttonCreate.Name = "buttonCreate";
-            buttonCreate.Size = new Size(139, 49);
+            buttonCreate.Size = new Size(75, 23);
             buttonCreate.TabIndex = 3;
             buttonCreate.Text = "Create";
             buttonCreate.UseVisualStyleBackColor = true;
             buttonCreate.Click += buttonCreate_Click;
             // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            label2.Location = new Point(96, 31);
+            label2.Margin = new Padding(2, 0, 2, 0);
+            label2.Name = "label2";
+            label2.Size = new Size(171, 25);
+            label2.TabIndex = 11;
+            label2.Text = "Create new listing";
+            // 
             // FormCreateListing
             // 
-            AutoScaleDimensions = new SizeF(13F, 32F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(663, 759);
+            ClientSize = new Size(359, 398);
+            Controls.Add(label2);
             Controls.Add(groupBox1);
+            Margin = new Padding(2, 1, 2, 1);
             Name = "FormCreateListing";
             Text = "FormCreateListing";
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -146,5 +156,6 @@
         private Button buttonCreate;
         private ComboBox comboBoxFilter;
         private Label label1;
+        private Label label2;
     }
 }
